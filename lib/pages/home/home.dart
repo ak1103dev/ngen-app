@@ -11,9 +11,13 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
-  int _pageIndex = 1;
-  final title = 'NGEN';
-  final menus= <Widget>[
+  int _pageIndex = 0;
+
+  final titles = [
+    'Daily',
+    'About'
+  ];
+  final menus = <Widget>[
     DailyPage(),
     AboutPage(),
   ];
@@ -26,7 +30,7 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(title)),
+      appBar: AppBar(title: Text(titles[_pageIndex])),
       // body: Center(child: Text('My Page!')),
       body: menus[_pageIndex],
       drawer: SideDrawer(changeMenu: _onChangeMenu)
